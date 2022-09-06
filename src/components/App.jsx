@@ -1,16 +1,25 @@
-export const App = () => {
+import React from 'react';
+import { Outlet } from 'react-router-dom';
+import { Header, Item, List, MainLink } from './App.styled';
+
+const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React project
-    </div>
+    <>
+      <Header>
+        <nav>
+          <List>
+            <Item>
+              <MainLink to="/">Home</MainLink>
+            </Item>
+            <Item>
+              <MainLink to="/movies">Movies</MainLink>
+            </Item>
+          </List>
+        </nav>
+      </Header>
+      <Outlet />
+    </>
   );
 };
+
+export default App;
