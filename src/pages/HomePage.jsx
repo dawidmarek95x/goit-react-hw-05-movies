@@ -1,23 +1,27 @@
-import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import MovieList from 'components/MovieList';
+import React, { useEffect, useState } from 'react';
+import { getTrendyMovies } from 'services/movieApi';
 
 const HomePage = () => {
-  let location = useLocation();
+  const [trendyMovies, setTrendyMovies] = useState([]);
+
+  const getMovies = async () => {
+    try {
+      const moviesList = await getTrendyMovies();
+      setTrendyMovies(moviesList);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getMovies();
+  }, []);
 
   return (
     <section>
       <h2>Trending today</h2>
-      <ul>
-        <li>
-          <Link to={`/movies/${1}`} state={{from: location}}>1</Link>
-        </li>
-        <li>
-          <Link to={`/movies/${2}`} state={{from: location}}>2</Link>
-        </li>
-        <li>
-          <Link to={`/movies/${3}`} state={{from: location}}>3</Link>
-        </li>
-      </ul>
+      <MovieList movies={trendyMovies}/>
     </section>
   );
 };

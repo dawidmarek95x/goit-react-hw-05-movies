@@ -1,34 +1,49 @@
-import React from 'react';
+import MovieList from 'components/MovieList';
+import React, { useCallback, useEffect } from 'react';
 import { useState } from 'react';
 import {
-  Link,
   Outlet,
-  useLocation,
   useParams,
   useSearchParams,
 } from 'react-router-dom';
+import { getMoviesByQuery } from 'services/movieApi';
 
 const MoviesPage = () => {
   const params = useParams();
-  let location = useLocation();
-  const [searchedValue, setSearchedValue] = useState('');
+  const [queryValue, setQueryValue] = useState('');
   const [searchParams, setSearchParams] = useSearchParams();
+  const [moviesByQuery, setMoviesByQuery] = useState([]);
 
-  const searchQueryHandler = e => {
-    setSearchedValue(e.target.value);
+  const queryChangeHandler = (e) => {
+    setQueryValue(e.target.value);
   };
 
-  const querySubmitHandler = e => {
+  const querySubmitHandler = (e) => {
     e.preventDefault();
 
-    searchedValue
-      ? setSearchParams({ query: searchedValue })
+    queryValue
+      ? setSearchParams({ query: queryValue })
       : setSearchParams('');
-
-    const query = searchParams.get('query');
-    console.log(query); // tutaj pobieranie z API po query
-    setSearchedValue('');
+    
+    setQueryValue('');
   };
+
+  const getWantedMovies = useCallback(async () => {
+    try {
+      const query = searchParams.get('query');
+      if (query) {
+        const moviesList = await getMoviesByQuery(query);
+        setMoviesByQuery(moviesList);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }, [searchParams],
+);
+
+  useEffect(() => {
+    getWantedMovies();
+  }, [getWantedMovies]);
 
   return (
     <>
@@ -37,28 +52,12 @@ const MoviesPage = () => {
           <form onSubmit={querySubmitHandler}>
             <input
               type="text"
-              value={searchedValue}
-              onChange={searchQueryHandler}
+              value={queryValue}
+              onChange={queryChangeHandler}
             />
             <button type="submit">Search</button>
           </form>
-          <ul>
-            <li>
-              <Link to={`/movies/${1}`} state={{ from: location }}>
-                1
-              </Link>
-            </li>
-            <li>
-              <Link to={`/movies/${2}`} state={{ from: location }}>
-                2
-              </Link>
-            </li>
-            <li>
-              <Link to={`/movies/${3}`} state={{ from: location }}>
-                3
-              </Link>
-            </li>
-          </ul>
+          <MovieList movies={moviesByQuery}/>
         </>
       )}
       {params.movieId && (
