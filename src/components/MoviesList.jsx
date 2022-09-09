@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom';
 
-const MovieList = ({movies}) => {
+const MoviesList = ({movies}) => {
   let location = useLocation();
 
   return (
@@ -22,4 +22,4 @@ const MovieList = ({movies}) => {
   )
 }
 
-export default MovieList
+export default MoviesList

@@ -1,4 +1,4 @@
-import MovieList from 'components/MovieList';
+import MoviesList from 'components/MoviesList';
 import React, { useEffect, useState } from 'react';
 import { getTrendyMovies } from 'services/movieApi';
 
@@ -21,7 +21,7 @@ const HomePage = () => {
   return (
     <section>
       <h2>Trending today</h2>
-      <MovieList movies={trendyMovies}/>
+      <MoviesList movies={trendyMovies}/>
     </section>
   );
 };

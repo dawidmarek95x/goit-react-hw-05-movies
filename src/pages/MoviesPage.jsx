@@ -1,4 +1,4 @@
-import MovieList from 'components/MovieList';
+import MoviesList from 'components/MoviesList';
 import React, { useCallback, useEffect } from 'react';
 import { useState } from 'react';
 import {
@@ -57,7 +57,7 @@ const MoviesPage = () => {
             />
             <button type="submit">Search</button>
           </form>
-          <MovieList movies={moviesByQuery}/>
+          <MoviesList movies={moviesByQuery}/>
         </>
       )}
       {params.movieId && (

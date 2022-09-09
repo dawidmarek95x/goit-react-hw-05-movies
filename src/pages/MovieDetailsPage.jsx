@@ -7,8 +7,8 @@ import {
   useParams,
 } from 'react-router-dom';
 import useFetchMoviesById from '../hooks/useFetchMoviesById';
-import Loader from './Loader';
-import MovieDatails from './MovieDatails';
+import Loader from '../components/Loader/Loader';
+import MovieDatails from '../components/MovieDatails';
 
 const MovieDetailsPage = () => {
   const { movieId } = useParams();

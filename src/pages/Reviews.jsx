@@ -1,8 +1,8 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import useFetchMoviesById from '../hooks/useFetchMoviesById';
-import Loader from './Loader';
-import ReviewsList from './ReviewsList';
+import Loader from '../components/Loader/Loader';
+import ReviewsList from '../components/Reviews/ReviewsList';
 
 const Reviews = () => {
   const { movieId } = useParams();

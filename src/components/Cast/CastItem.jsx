@@ -1,5 +1,5 @@
 import React from 'react';
-import ImageWithCheck from './ImageWithCheck';
+import ImageWithCheck from '../ImageWithCheck/ImageWithCheck';
 
 const CastItem = ({ cast }) => {
   return (

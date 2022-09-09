@@ -1,6 +1,6 @@
 import { Wrapper } from "./Loader.styled";
 
-const { Oval } = require("react-loader-spinner");
+import { Oval } from "react-loader-spinner";
 
 const Loader = () => {
   return (
