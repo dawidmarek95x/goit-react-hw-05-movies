@@ -6,9 +6,9 @@ import {
   useNavigate,
   useParams,
 } from 'react-router-dom';
-import useFetchMoviesById from '../hooks/useFetchMoviesById';
-import Loader from '../components/Loader/Loader';
-import MovieDatails from '../components/MovieDatails';
+import useFetchMoviesById from '../../hooks/useFetchMoviesById';
+import Loader from '../../components/Loader/Loader';
+import MovieDatails from '../../components/Movies/MovieDatails';
 
 const MovieDetailsPage = () => {
   const { movieId } = useParams();

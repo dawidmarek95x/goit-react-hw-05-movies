@@ -5,19 +5,12 @@ import './index.scss';
 import App from 'components/App/App';
 import Loader from 'components/Loader/Loader';
 
-const HomePage = React.lazy(() => import("./pages/HomePage"));
-const MoviesPage = React.lazy(() => import("./pages/MoviesPage"));
-const MovieDetailsPage = React.lazy(() => import("./pages/MovieDetailsPage"));
-const Cast = React.lazy(() => import("./pages/Cast"));
-const Reviews = React.lazy(() => import("./pages/Reviews"));
-const NotFound = React.lazy(() => import("./pages/NotFound"));
-
-// import HomePage from 'pages/HomePage';
-// import MoviesPage from 'pages/MoviesPage';
-// import MovieDetailsPage from 'pages/MovieDetailsPage';
-// import Cast from 'pages/Cast';
-// import Reviews from 'pages/Reviews';
-// import NotFound from 'pages/NotFound';
+const HomePage = React.lazy(() => import("./pages/Homepage/HomePage"));
+const MoviesPage = React.lazy(() => import("./pages/MoviesPage/MoviesPage"));
+const MovieDetailsPage = React.lazy(() => import("./pages/MoviesDetailsPage/MovieDetailsPage"));
+const Cast = React.lazy(() => import("./pages/Cast/Cast"));
+const Reviews = React.lazy(() => import("./pages/Reviews/Reviews"));
+const NotFound = React.lazy(() => import("./pages/NotFound/NotFound"));
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

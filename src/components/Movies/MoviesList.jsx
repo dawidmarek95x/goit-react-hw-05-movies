@@ -1,11 +1,13 @@
+import ImageWithCheck from 'components/ImageWithCheck/ImageWithCheck';
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom';
+import { ImgWrapper, List } from './MoviesList.styled';
 
 const MoviesList = ({movies}) => {
   let location = useLocation();
 
   return (
-    <ul>
+    <List>
       {movies.map(movie => (
         <li key={movie.id}>
           <Link
@@ -14,11 +16,14 @@ const MoviesList = ({movies}) => {
               from: location,
             }}
           >
-            {movie.title}
+            <ImgWrapper>
+              <ImageWithCheck src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} check={movie.poster_path}/>
+            </ImgWrapper>
+            <p>{movie.title}</p>
           </Link>
         </li>
       ))}
-    </ul>
+    </List>
   )
 }
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import ImageWithCheck from './ImageWithCheck/ImageWithCheck'
+import ImageWithCheck from '../ImageWithCheck/ImageWithCheck'
 
 const MovieDatails = ({movie}) => {
   const { poster_path, release_date, title, vote_average, overview, genres } =

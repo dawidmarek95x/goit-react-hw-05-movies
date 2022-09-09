@@ -1,6 +1,7 @@
-import MoviesList from 'components/MoviesList';
+import MoviesList from 'components/Movies/MoviesList';
 import React, { useEffect, useState } from 'react';
 import { getTrendyMovies } from 'services/movieApi';
+import { TrendiesSection } from './HomePage.styled';
 
 const HomePage = () => {
   const [trendyMovies, setTrendyMovies] = useState([]);
@@ -11,7 +12,7 @@ const HomePage = () => {
       setTrendyMovies(moviesList);
     } catch (error) {
       console.log(error);
-    }
+    };
   };
 
   useEffect(() => {
@@ -19,10 +20,12 @@ const HomePage = () => {
   }, []);
 
   return (
-    <section>
-      <h2>Trending today</h2>
+    <TrendiesSection>
+      <div>
+        <h2>Trending today</h2>
+      </div>
       <MoviesList movies={trendyMovies}/>
-    </section>
+    </TrendiesSection>
   );
 };
 

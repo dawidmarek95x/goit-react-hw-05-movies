@@ -1,11 +1,8 @@
-import MoviesList from 'components/MoviesList';
+import MoviesList from 'components/Movies/MoviesList';
+import MoviesSearchbar from '../../components/Movies/MoviesSearchbar';
 import React, { useCallback, useEffect } from 'react';
 import { useState } from 'react';
-import {
-  Outlet,
-  useParams,
-  useSearchParams,
-} from 'react-router-dom';
+import { Outlet, useParams, useSearchParams } from 'react-router-dom';
 import { getMoviesByQuery } from 'services/movieApi';
 
 const MoviesPage = () => {
@@ -14,17 +11,15 @@ const MoviesPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [moviesByQuery, setMoviesByQuery] = useState([]);
 
-  const queryChangeHandler = (e) => {
+  const queryChangeHandler = e => {
     setQueryValue(e.target.value);
   };
 
-  const querySubmitHandler = (e) => {
+  const querySubmitHandler = e => {
     e.preventDefault();
 
-    queryValue
-      ? setSearchParams({ query: queryValue })
-      : setSearchParams('');
-    
+    queryValue ? setSearchParams({ query: queryValue }) : setSearchParams('');
+
     setQueryValue('');
   };
 
@@ -38,8 +33,7 @@ const MoviesPage = () => {
     } catch (error) {
       console.log(error);
     }
-  }, [searchParams],
-);
+  }, [searchParams]);
 
   useEffect(() => {
     getWantedMovies();
@@ -49,15 +43,12 @@ const MoviesPage = () => {
     <>
       {!params.movieId && (
         <>
-          <form onSubmit={querySubmitHandler}>
-            <input
-              type="text"
-              value={queryValue}
-              onChange={queryChangeHandler}
-            />
-            <button type="submit">Search</button>
-          </form>
-          <MoviesList movies={moviesByQuery}/>
+          <MoviesSearchbar
+            value={queryValue}
+            submitHandler={querySubmitHandler}
+            changeHandler={queryChangeHandler}
+          />
+          <MoviesList movies={moviesByQuery} />
         </>
       )}
       {params.movieId && (
