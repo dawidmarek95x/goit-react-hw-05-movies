@@ -1,6 +1,7 @@
 import React from 'react';
 import ImageWithCheck from '../ImageWithCheck/ImageWithCheck';
 import { Item } from './CastItem.styled';
+import PropTypes from 'prop-types';
 
 const CastItem = ({ cast }) => {
   return (
@@ -17,5 +18,9 @@ const CastItem = ({ cast }) => {
     </Item>
   );
 };
+
+CastItem.propTypes ={
+  cast: PropTypes.object.isRequired,
+}
 
 export default CastItem;

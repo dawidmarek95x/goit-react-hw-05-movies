@@ -1,6 +1,7 @@
 import React from 'react';
 import ReviewsItem from './ReviewsItem';
 import { Reviews } from './ReviewsList.styled';
+import PropTypes from 'prop-types';
 
 const ReviewsList = ({ reviews }) => {
   return (
@@ -16,5 +17,9 @@ const ReviewsList = ({ reviews }) => {
     </>
   );
 };
+
+ReviewsList.propTypes = {
+  reviews: PropTypes.arrayOf(PropTypes.object),
+}
 
 export default ReviewsList;

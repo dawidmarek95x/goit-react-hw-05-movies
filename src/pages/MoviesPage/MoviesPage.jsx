@@ -11,12 +11,16 @@ const MoviesPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [moviesByQuery, setMoviesByQuery] = useState([]);
 
-  const queryChangeHandler = e => {
+  const queryChangeHandler = (e) => {
     setQueryValue(e.target.value);
   };
 
-  const querySubmitHandler = e => {
+  const querySubmitHandler = (e) => {
     e.preventDefault();
+
+    if (!queryValue) {
+      alert("Complete the search field!");
+    }
 
     queryValue ? setSearchParams({ query: queryValue }) : setSearchParams('');
 

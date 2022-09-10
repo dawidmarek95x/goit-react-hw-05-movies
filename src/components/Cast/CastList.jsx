@@ -1,6 +1,7 @@
 import React from 'react';
 import CastItem from './CastItem';
 import { Cast } from './CastList.styled';
+import PropTypes from 'prop-types';
 
 const CastList = ({ casts }) => {
   return (
@@ -18,5 +19,9 @@ const CastList = ({ casts }) => {
     </>
   );
 };
+
+CastItem.propTypes ={
+  casts: PropTypes.arrayOf(PropTypes.obj),
+}
 
 export default CastList;

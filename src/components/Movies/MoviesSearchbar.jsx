@@ -1,6 +1,7 @@
 import React from 'react'
 import { Searchbar, SearchbarWrapper } from './MoviesSearchbar.styled';
 import { BsSearch } from "react-icons/bs";
+import PropTypes from 'prop-types';
 
 const MoviesSearchbar = ({value, submitHandler, changeHandler}) => {
   return (
@@ -14,7 +15,13 @@ const MoviesSearchbar = ({value, submitHandler, changeHandler}) => {
         <button type="submit"><BsSearch />Search</button>
       </Searchbar>
     </SearchbarWrapper>
-  )
+  );
+};
+
+MoviesSearchbar.propTypes = {
+  value: PropTypes.string.isRequired,
+  submitHandler: PropTypes.func.isRequired,
+  changeHandler: PropTypes.func.isRequired,
 }
 
 export default MoviesSearchbar;

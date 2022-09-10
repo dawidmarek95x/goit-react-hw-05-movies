@@ -1,6 +1,7 @@
 import React from 'react'
 import ImageWithCheck from '../ImageWithCheck/ImageWithCheck'
 import { Details, MovieInfo, ImgWrapper } from './MovieDetails.styled';
+import PropTypes from 'prop-types';
 
 const MovieDetails = ({movie}) => {
   const { poster_path, release_date, title, vote_average, overview, genres } =
@@ -30,5 +31,9 @@ const MovieDetails = ({movie}) => {
     </Details>
   )
 }
+
+MovieDetails.propTypes = {
+  movie: PropTypes.object,
+};
 
 export default MovieDetails

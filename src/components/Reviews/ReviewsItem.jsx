@@ -1,5 +1,6 @@
 import React from 'react';
 import { Review } from './ReviewsItem.styled';
+import PropTypes from 'prop-types';
 
 const ReviewsItem = ({review}) => {
   return (
@@ -9,5 +10,9 @@ const ReviewsItem = ({review}) => {
     </Review>
   );
 };
+
+ReviewsItem.propTypes = {
+  review: PropTypes.object.isRequired,
+}
 
 export default ReviewsItem;

@@ -2,6 +2,7 @@ import ImageWithCheck from 'components/ImageWithCheck/ImageWithCheck';
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom';
 import { ImgWrapper, List } from './MoviesList.styled';
+import PropTypes from 'prop-types';
 
 const MoviesList = ({movies}) => {
   let location = useLocation();
@@ -26,5 +27,9 @@ const MoviesList = ({movies}) => {
     </List>
   )
 }
+
+MoviesList.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default MoviesList
