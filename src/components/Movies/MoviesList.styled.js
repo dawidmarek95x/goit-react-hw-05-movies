@@ -7,13 +7,18 @@ export const List = styled.ul`
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
   justify-items: center;
-  padding: 0;
+  padding: 0 20px;
   list-style-type: none;
 
   & li {
     border: 1px solid black;
     border-radius: ${borderRadius};
     background-color: lightgray;
+
+    &:hover {
+      border-color: gray;
+      box-shadow: -1px -1px 3px 1px black, 1px 1px 3px 1px black;
+    }
   }
 
   & a {
@@ -26,6 +31,7 @@ export const List = styled.ul`
       align-items: center;
       margin: 0;
       padding: 5px;
+      font-weight: 500;
     }
   }
 `;

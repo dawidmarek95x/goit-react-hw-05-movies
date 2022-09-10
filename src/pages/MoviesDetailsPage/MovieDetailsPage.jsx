@@ -1,14 +1,10 @@
 import React from 'react';
-import {
-  Link,
-  Outlet,
-  useLocation,
-  useNavigate,
-  useParams,
-} from 'react-router-dom';
+import { Outlet, useLocation, useNavigate, useParams } from 'react-router-dom';
 import useFetchMoviesById from '../../hooks/useFetchMoviesById';
 import Loader from '../../components/Loader/Loader';
-import MovieDatails from '../../components/Movies/MovieDatails';
+import MovieDetails from '../../components/Movies/MovieDetails';
+import { MovieDetailsSection } from './MovieDetailsPage.styled';
+import MovieInfo from 'components/Movies/MovieInfo';
 
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
@@ -25,7 +21,7 @@ const MovieDetailsPage = () => {
   };
 
   return (
-    <section>
+    <MovieDetailsSection>
       <button type="button" onClick={goBackHandler}>
         &larr; Go back
       </button>
@@ -33,26 +29,12 @@ const MovieDetailsPage = () => {
         <Loader />
       ) : (
         <>
-          <MovieDatails movie={movie}/>
-          <div>
-            <p>Aditional information</p>
-            <ul>
-              <li>
-                <Link to="cast" state={location.state}>
-                  Cast
-                </Link>
-              </li>
-              <li>
-                <Link to="reviews" state={location.state}>
-                  Reviews
-                </Link>
-              </li>
-            </ul>
-          </div>
+          <MovieDetails movie={movie} />
+          <MovieInfo />
           <Outlet />
         </>
       )}
-    </section>
+    </MovieDetailsSection>
   );
 };
 

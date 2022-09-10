@@ -1,12 +1,13 @@
-import React from 'react'
+import React from 'react';
+import { Review } from './ReviewsItem.styled';
 
 const ReviewsItem = ({review}) => {
   return (
-    <li>
+    <Review>
       <h3>Author: {review.author}</h3>
       <p>{review.content}</p>
-    </li>
-  )
-}
+    </Review>
+  );
+};
 
-export default ReviewsItem
+export default ReviewsItem;

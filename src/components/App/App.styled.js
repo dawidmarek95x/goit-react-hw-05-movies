@@ -5,8 +5,8 @@ export const Header = styled.header`
   margin-bottom: 15px;
   padding: 12px 0;
   background: linear-gradient(to left, #333333, #B72D2D);
-  border-bottom: 1px solid rgba(200,200,200,0.75);
-  box-shadow: 0px 5px 3px 0px rgba(80,80,80,0.75);
+  border-bottom: 1px solid rgba(200, 200, 200, 0.75);
+  box-shadow: 0px 5px 3px 0px rgba(80, 80, 80, 0.75);
 `;
 
 export const List = styled.ul`
