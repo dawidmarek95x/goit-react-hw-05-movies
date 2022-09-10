@@ -31,4 +31,10 @@ export const InfoLink = styled(NavLink)`
     box-shadow: -1px -1px 3px 1px black, 1px 1px 3px 1px black;
     transition: background-color 500ms;
   }
+
+  &.active {
+    font-weight: 600;
+    background-color: #B30303;
+    box-shadow: -1px -1px 3px 1px black, 1px 1px 3px 1px black;
+  }
 `;
