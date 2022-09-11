@@ -43,7 +43,7 @@ export const List = styled.ul`
 `;
 
 export const ImgWrapper = styled.div`
-max-height: 370px;
+  max-height: 370px;
   height: 100%;
   border-top-left-radius: ${borderRadius};
   border-top-right-radius: ${borderRadius};
