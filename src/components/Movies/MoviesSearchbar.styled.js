@@ -5,13 +5,21 @@ export const SearchbarWrapper = styled.div`
 `;
 
 export const Searchbar = styled.form`
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(50px, 1fr) 80px;
+  grid-template-areas: "searchbar searchbtn";
+  margin: 0 auto;
   border: 1px solid grey;
   border-radius: 10px;
-  width: min-content;
   overflow: hidden;
 
+  @media (min-width: 576px) {
+    grid-template-columns: 450px 80px;
+    width: max-content;
+  }
+
   & input {
+    grid-area: searchbar;
     padding: 5px 10px;
     outline: none;
     border: none;
@@ -20,6 +28,7 @@ export const Searchbar = styled.form`
   }
 
   & button {
+    grid-area: searchbtn;
     display: flex;
     align-items: center;
     justify-content: center;

@@ -11,6 +11,8 @@ export const List = styled.ul`
   list-style-type: none;
 
   & li {
+    max-width: 300px;
+    width: 100%;
     border: 1px solid black;
     border-radius: ${borderRadius};
     background-color: lightgray;
@@ -22,6 +24,9 @@ export const List = styled.ul`
   }
 
   & a {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
     color: black;
     text-decoration: none;
 
@@ -29,7 +34,8 @@ export const List = styled.ul`
       display: flex;
       justify-content: center;
       align-items: center;
-      margin: 0;
+      text-align: center;
+      margin: auto 0;
       padding: 5px;
       font-weight: 500;
     }
@@ -37,8 +43,15 @@ export const List = styled.ul`
 `;
 
 export const ImgWrapper = styled.div`
+max-height: 370px;
+  height: 100%;
   border-top-left-radius: ${borderRadius};
   border-top-right-radius: ${borderRadius};
-  overflow: hidden;
   border-bottom: 1px solid black;
+  overflow: hidden;
+
+  & img {
+    display: block;
+    height: 100%;
+  }
 `;
