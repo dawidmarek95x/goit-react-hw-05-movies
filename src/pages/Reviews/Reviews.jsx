@@ -6,7 +6,7 @@ import ReviewsList from '../../components/Reviews/ReviewsList';
 
 const Reviews = () => {
   const { movieId } = useParams();
-  const { movie, loading } = useFetchMoviesById(movieId, 'reviews');
+  const { movie, loading } = useFetchMoviesById(movieId, "/reviews");
 
   const reviews = movie.results;
   return (

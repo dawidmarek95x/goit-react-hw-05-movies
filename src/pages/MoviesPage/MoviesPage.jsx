@@ -3,7 +3,7 @@ import MoviesSearchbar from '../../components/Movies/MoviesSearchbar';
 import React, { useCallback, useEffect } from 'react';
 import { useState } from 'react';
 import { Outlet, useParams, useSearchParams } from 'react-router-dom';
-import { getMoviesByQuery } from 'services/movieApi';
+import apiMovies from 'api/movies';
 
 const MoviesPage = () => {
   const params = useParams();
@@ -31,7 +31,7 @@ const MoviesPage = () => {
     try {
       const query = searchParams.get('query');
       if (query) {
-        const moviesList = await getMoviesByQuery(query);
+        const moviesList = await apiMovies.fetchMoviesByQuery(query);
         setMoviesByQuery(moviesList);
       }
     } catch (error) {

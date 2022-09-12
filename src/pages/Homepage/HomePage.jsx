@@ -1,6 +1,6 @@
 import MoviesList from 'components/Movies/MoviesList';
 import React, { useEffect, useState } from 'react';
-import { getTrendyMovies } from 'services/movieApi';
+import apiMovies from 'api/movies';
 import { TrendiesSection } from './HomePage.styled';
 
 const HomePage = () => {
@@ -8,7 +8,7 @@ const HomePage = () => {
 
   const getMovies = async () => {
     try {
-      const moviesList = await getTrendyMovies();
+      const moviesList = await apiMovies.fetchTrendy();
       setTrendyMovies(moviesList);
     } catch (error) {
       console.log(error);

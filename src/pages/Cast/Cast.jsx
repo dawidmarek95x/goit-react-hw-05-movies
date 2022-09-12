@@ -6,7 +6,7 @@ import Loader from '../../components/Loader/Loader';
 
 const Cast = () => {
   const { movieId } = useParams();
-  const { movie, loading } = useFetchMoviesById(movieId, 'credits');
+  const { movie, loading } = useFetchMoviesById(movieId, "/credits");
 
   const casts = movie.cast;
 
