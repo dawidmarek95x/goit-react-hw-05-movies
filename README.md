@@ -1,4 +1,4 @@
-# Image Finder App
+# Movies Info App
 
 ## Project info
 A single-page application project used to search for detailed information about movies of interest to the user.
